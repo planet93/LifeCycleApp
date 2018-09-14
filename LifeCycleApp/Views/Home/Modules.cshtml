@@ -1,0 +1,16 @@
+﻿@model IEnumerable<string>
+
+@{
+    ViewBag.Title = "Modules";
+}
+
+<h2>Modules</h2>
+
+<ul>
+
+    @foreach(string s in Model)
+    {
+        <li>@s</li>
+    }
+</ul>
+
