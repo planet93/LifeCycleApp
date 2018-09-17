@@ -14,7 +14,9 @@ namespace LifeCycleApp
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            
             routes.Add(new Route("handler/{*path}", new CustomerRouteHandler()));
+            routes.Add(new Route("User/{id}", new CustomerRouteHandler()));
 
             routes.MapRoute(
                 name: "Default",
@@ -28,6 +30,10 @@ namespace LifeCycleApp
             public IHttpHandler GetHttpHandler(RequestContext requestContext)
             {
                 return new UserInfoHandler();
+            }
+            public IHttpHandler GetHttpHandlerAsync(RequestContext requestContext)
+            {
+                return new UserInfoAsyncHandler();
             }
         }
     }
